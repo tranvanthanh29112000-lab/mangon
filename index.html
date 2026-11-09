@@ -62,14 +62,31 @@
     </form>
     <p id="search-msg" class="search-msg" role="status" aria-live="polite"></p>
     <div class="quick">
-      <a id="open-shopee" class="btn btn--quick" href="https://shopee.vn/" target="_blank" rel="noopener">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        Mở Shopee cùng nhiều mã giảm giá
+      <a id="open-shopee" class="cta" href="https://shopee.vn/" target="_blank" rel="noopener">
+        <span class="cta__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </span>
+        <span class="cta__text">
+          <strong>Mở Shopee cùng nhiều mã giảm giá</strong>
+          <small>Bấm 1 lần, vào thẳng app mua sắm</small>
+        </span>
+        <svg class="cta__arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
       </a>
-      <button id="share-site" class="btn btn--ghost" type="button">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
-        Gửi Mã Ngon cho bạn bè
-      </button>
+      <div class="share-site" role="group" aria-label="Chia sẻ Mã Ngon">
+        <span class="share-site__label">Chia sẻ:</span>
+        <button class="round round--mess" type="button" data-share="messenger" aria-label="Chia sẻ Mã Ngon qua Messenger">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 6.7 3 11.3c0 2.5 1.2 4.7 3.1 6.2V21l2.9-1.6c.9.3 1.9.4 3 .4 5 0 9-3.7 9-8.3S17 3 12 3z"/><path d="m7.5 13.5 3-3 2.5 2 3.5-3.5"/></svg>
+        </button>
+        <button class="round round--fb" type="button" data-share="facebook" aria-label="Chia sẻ Mã Ngon lên Facebook">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v11M3 10h4v11H3zM7 12l4-8a2 2 0 0 1 2 2v4h6a2 2 0 0 1 2 2.3l-1.2 7A2 2 0 0 1 17.8 21H7"/></svg>
+        </button>
+        <button class="round round--zalo" type="button" data-share="zalo" aria-label="Chia sẻ Mã Ngon qua Zalo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 8h6l-6 6h6"/></svg>
+        </button>
+        <button class="round round--copy" type="button" data-share="copy" aria-label="Sao chép link Mã Ngon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -130,6 +147,11 @@
       </figure>
     </div>
   </footer>
+
+  <a id="sticky-shopee" class="sticky-cta" href="https://shopee.vn/" target="_blank" rel="noopener">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    Mở Shopee cùng nhiều mã giảm giá
+  </a>
 
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 

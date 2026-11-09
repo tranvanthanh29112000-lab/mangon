@@ -263,3 +263,47 @@ h1, h2, h3 { line-height: 1.2; }
   .quick { flex-direction: column; align-items: stretch; }
   .quick .btn { max-width: none; flex: 0 0 auto; font-size: 15px; }
 }
+
+/* Nút nổi bật "Mở Shopee cùng nhiều mã giảm giá" */
+.quick { flex-direction: column; align-items: center; gap: 14px; }
+.cta {
+  width: 100%; max-width: 620px; display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px; border-radius: 18px; text-decoration: none;
+  background: var(--cam); color: var(--trang); border: 3px solid var(--chu);
+  box-shadow: 0 6px 0 var(--chu); transition: transform .1s ease, box-shadow .1s ease;
+  animation: nhay 2.4s ease-in-out infinite;
+}
+.cta:hover { color: var(--trang); background: var(--cam-dam); }
+.cta:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--chu); }
+.cta__icon { flex: 0 0 auto; width: 48px; height: 48px; border-radius: 14px; background: var(--trang); color: var(--cam); display: flex; align-items: center; justify-content: center; }
+.cta__text { flex: 1; display: flex; flex-direction: column; text-align: left; min-width: 0; }
+.cta__text strong { font-size: 19px; line-height: 1.25; font-weight: 800; }
+.cta__text small { font-size: 13px; color: var(--cam-nhat); }
+.cta__arrow { flex: 0 0 auto; }
+@keyframes nhay { 0%, 88%, 100% { transform: none; } 92% { transform: translateY(-3px); } 96% { transform: translateY(1px); } }
+@media (prefers-reduced-motion: reduce) { .cta { animation: none; } }
+
+/* Hàng chia sẻ cả trang */
+.share-site { display: flex; align-items: center; gap: 10px; }
+.share-site__label { font-size: 16px; font-weight: 600; color: var(--chu-phu); }
+.round { width: 48px; height: 48px; border-radius: 999px; border: 0; color: #fff; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+.round--mess { background: #1D4ED8; }
+.round--fb { background: #1E40AF; }
+.round--zalo { background: #0369A1; }
+.round--copy { background: var(--chu-phu); }
+.round:hover { filter: brightness(1.12); }
+
+/* Thanh cố định dưới đáy trên điện thoại */
+.sticky-cta { display: none; }
+@media (max-width: 760px) {
+  .sticky-cta {
+    position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 30;
+    display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 16px;
+    background: var(--cam); color: var(--trang); font-weight: 800; font-size: 16px; text-decoration: none;
+    border: 2px solid var(--chu); box-shadow: 0 8px 24px rgba(31, 26, 23, 0.3);
+  }
+  .sticky-cta:hover { color: var(--trang); }
+  body { padding-bottom: 84px; }
+  .toast { bottom: calc(84px + env(safe-area-inset-bottom)); }
+  .cta__text strong { font-size: 17px; }
+}

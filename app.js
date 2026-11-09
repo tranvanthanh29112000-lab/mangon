@@ -179,46 +179,36 @@
     if (cond) card.appendChild(el('p', 'card__cond', cond));
     if (v.ghiChu) card.appendChild(el('p', 'card__note', v.ghiChu));
 
-    if (v.ma) {
-      var codeRow = el('div', 'card__code');
-      codeRow.appendChild(el('span', null, v.ma));
-      var copy = el('button', null, 'Sao chép');
-      copy.type = 'button';
-      copy.setAttribute('aria-label', 'Sao chép mã ' + v.ma);
-      copy.addEventListener('click', function () { copyText(v.ma); });
-      codeRow.appendChild(copy);
-      card.appendChild(codeRow);
-    }
+    // Không hiện mã chữ trên web: khách bấm nút để lấy mã (đi qua link affiliate)
 
     var actions = el('div', 'card__actions');
     var href = null;
     var label = st.state === 'sap' ? 'Lưu trước' : 'Lưu mã';
-    var fallback = state.settings.linkNutCoDinh || state.settings.linkMacDinh;
+    var fallback = state.settings.linkNutCoDinh || state.settings.linkMacDinh || 'https://shopee.vn/';
     if (v.link) {
       href = affLink(v.link, v.id);
-    } else if (v.ma && fallback) {
-      // Mã nhập tay: sao chép mã rồi mở app qua link affiliate
-      href = affLink(fallback, v.id);
-      label = 'Sao chép mã & mở app';
-    } else if (fallback) {
-      // Mã dạng banner chưa có link riêng: mở app qua link affiliate để khách lưu mã
-      href = affLink(fallback, v.id);
-      label = 'Mở app lưu mã';
     }
-    var btn;
-    if (href) {
-      btn = el('a', 'btn btn--primary', label);
-      btn.href = href;
-      btn.target = '_blank';
-      btn.rel = 'noopener';
-      btn.addEventListener('click', function () {
-        if (v.ma) copyText(v.ma, true);
-        markSaved();
-      });
-    } else {
-      btn = el('span', 'btn', 'Đang cập nhật link');
-      btn.setAttribute('aria-disabled', 'true');
+    if (!href && v.ma) {
+      // Mã nhập tay: bấm nút thì web tự chép mã rồi mở Shopee qua link affiliate
+      href = affLink(fallback, v.id);
+      label = 'Lấy mã & vào Shopee';
     }
+    if (!href) {
+      // Chưa có link riêng: vẫn luôn có nút vào Shopee qua link affiliate
+      href = affLink(fallback, v.id) || fallback;
+      label = 'Vào Shopee';
+    }
+    var btn = el('a', 'btn btn--primary', label);
+    btn.href = href;
+    btn.target = '_blank';
+    btn.rel = 'noopener';
+    btn.addEventListener('click', function () {
+      if (v.ma) {
+        copyText(v.ma, true);
+        toast('Đã chép mã, dán vào ô mã giảm giá khi thanh toán');
+      }
+      markSaved();
+    });
     actions.appendChild(btn);
     actions.appendChild(shareRow(v));
     card.appendChild(actions);
@@ -517,7 +507,7 @@
         if (report) $('report-link').href = report;
         else $('report-link').parentElement.hidden = true;
         var fixedHref = affLink(s.linkNutCoDinh || s.linkMacDinh || 'https://shopee.vn/', 'nutcodinh');
-        if (fixedHref) $('open-shopee').href = fixedHref;
+        if (fixedHref) { $('open-shopee').href = fixedHref; $('sticky-shopee').href = fixedHref; }
         render();
         highlightShared();
       })
@@ -573,8 +563,17 @@
     if (fixed) {
       fixed.addEventListener('click', function () { markSaved(); });
     }
-    var shareSite = $('share-site');
-    if (shareSite) shareSite.addEventListener('click', function () { shareSheet(null, 'Zalo'); });
+    document.querySelectorAll('[data-share]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var kind = b.getAttribute('data-share');
+        if (kind === 'messenger') shareMessenger(null);
+        else if (kind === 'facebook') window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrlFor(null)), '_blank', 'noopener');
+        else if (kind === 'zalo') shareSheet(null, 'Zalo');
+        else copyLink(shareTextFor(null) + ' ' + shareUrlFor(null));
+      });
+    });
+    var sticky = $('sticky-shopee');
+    if (sticky) sticky.addEventListener('click', function () { markSaved(); });
 
     // Lối tắt
     if (!isStandalone()) {
