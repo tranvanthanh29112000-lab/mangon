@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mã Ngon – Dán link sản phẩm, nhận mã giảm giá tốt nhất</title>
+  <meta name="description" content="Dán link sản phẩm, Mã Ngon tìm ngay các mã giảm giá, mã freeship, mã shop đang dùng được. Miễn phí, không cần đăng nhập.">
+  <meta name="theme-color" content="#C2410C">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/icons/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Mã Ngon">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta property="og:title" content="Mã Ngon – Dán link, nhận mã giảm giá">
+  <meta property="og:description" content="Dán link sản phẩm, bấm vào mã là mã được lưu sẵn trong ví.">
+  <meta property="og:image" content="/icons/icon-512.png">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#ma-hom-nay">Bỏ qua, xem mã luôn</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="/" aria-label="Mã Ngon – trang chủ">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9a2 2 0 0 0 0 6v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a2 2 0 0 0 0-6V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"/><path d="M13 5v2M13 11v2M13 17v2"/></svg>
+        <span>Mã Ngon</span>
+      </a>
+      <button class="menu-btn" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="main-nav">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav id="main-nav" class="nav" aria-label="Menu chính">
+        <a href="#ma-hom-nay">Mã hôm nay</a>
+        <a href="#ma-hom-nay" data-filter-link="freeship">Freeship</a>
+        <a href="#huong-dan">Hướng dẫn</a>
+        <a id="group-link" href="#" target="_blank" rel="noopener" hidden>Nhóm săn sale</a>
+        <button id="install-open" class="nav__install" type="button" hidden>Thêm vào màn hình</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__inner">
+      <h1>Dán link sản phẩm,<br>nhận ngay mã giảm tốt nhất</h1>
+      <p>Bấm vào mã là app mở ra và mã đã được lưu sẵn trong ví.</p>
+    </div>
+  </section>
+
+  <div class="search-wrap">
+    <form id="search-form" class="search-card" novalidate>
+      <label for="link-input" class="sr-only">Link sản phẩm</label>
+      <input id="link-input" name="link" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Dán link sản phẩm vào đây…">
+      <button id="paste-btn" class="btn btn--ghost" type="button" hidden>Dán</button>
+      <button class="btn btn--dark" type="submit">Tìm mã</button>
+    </form>
+    <p id="search-msg" class="search-msg" role="status" aria-live="polite"></p>
+  </div>
+
+  <section id="product-result" class="wrap product" hidden aria-labelledby="product-title">
+    <div class="product__card">
+      <div class="product__icon" aria-hidden="true">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </div>
+      <div class="product__body">
+        <span class="product__label">Kết quả cho sản phẩm bạn vừa dán</span>
+        <h2 id="product-title" class="product__title">Đã nhận link sản phẩm</h2>
+        <p id="product-summary" class="product__summary"></p>
+      </div>
+      <div class="product__actions">
+        <a id="buy-link" class="btn btn--primary" href="#" target="_blank" rel="noopener">Mở sản phẩm</a>
+        <button id="clear-product" class="btn btn--ghost" type="button">Tìm món khác</button>
+      </div>
+    </div>
+  </section>
+
+  <main id="ma-hom-nay" class="wrap vouchers" tabindex="-1">
+    <div class="vouchers__head">
+      <h2 id="list-title">Mã đang chạy hôm nay</h2>
+      <p id="updated-at" class="muted"></p>
+    </div>
+    <div class="chips" role="group" aria-label="Lọc theo loại mã">
+      <button class="chip is-on" type="button" data-filter="all" aria-pressed="true">Tất cả</button>
+      <button class="chip" type="button" data-filter="toan-san" aria-pressed="false">Toàn sàn</button>
+      <button class="chip" type="button" data-filter="freeship" aria-pressed="false">Freeship</button>
+      <button class="chip" type="button" data-filter="shop" aria-pressed="false">Mã shop</button>
+      <button class="chip" type="button" data-filter="danh-sach" aria-pressed="false">Theo danh sách</button>
+      <button class="chip" type="button" data-filter="nganh-hang" aria-pressed="false">Ngành hàng</button>
+    </div>
+    <div id="voucher-grid" class="grid" aria-live="polite"></div>
+    <p id="empty-msg" class="empty" hidden>Chưa có mã nào phù hợp. Quay lại vào các khung giờ 0h, 9h, 12h, 15h, 18h, 21h nhé.</p>
+    <p class="report muted">Bấm mã mà không dùng được? <a id="report-link" href="#" target="_blank" rel="noopener">Báo cho Mã Ngon</a> để cập nhật lại.</p>
+  </main>
+
+  <section id="huong-dan" class="wrap howto" aria-labelledby="howto-title">
+    <h2 id="howto-title">Dùng Mã Ngon thế nào?</h2>
+    <ol class="howto__steps">
+      <li><span class="howto__num">1</span><div><h3>Sao chép link sản phẩm</h3><p>Trong app mua sắm, mở món bạn muốn mua, bấm Chia sẻ rồi chọn Sao chép liên kết.</p></div></li>
+      <li><span class="howto__num">2</span><div><h3>Dán vào Mã Ngon</h3><p>Mã Ngon hiện các mã dùng được cho món đó: mã sàn, mã shop, freeship.</p></div></li>
+      <li><span class="howto__num">3</span><div><h3>Bấm “Lưu mã” rồi mua</h3><p>App mở ra, mã đã nằm trong ví. Vào thanh toán, chọn mã là được giảm.</p></div></li>
+    </ol>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__text">
+        <p><strong>Mã Ngon</strong> không yêu cầu đăng nhập và không thu thập thông tin cá nhân của bạn.</p>
+        <p>Mã Ngon dùng link tiếp thị liên kết. Khi bạn mua hàng qua link trên trang, Mã Ngon có thể nhận một khoản hoa hồng nhỏ từ sàn. Bạn không phải trả thêm đồng nào.</p>
+        <p>Mã Ngon là trang tổng hợp độc lập, không phải trang chính thức của sàn thương mại điện tử nào. Mã có số lượng và thời hạn, có thể hết trước khi trang kịp cập nhật.</p>
+      </div>
+      <figure class="footer__qr">
+        <img src="/qr-mangon.png" width="132" height="132" alt="Mã QR mở trang mangon.vercel.app">
+        <figcaption>Quét để mở trên điện thoại</figcaption>
+      </figure>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <div id="install-sheet" class="sheet" hidden>
+    <div class="sheet__backdrop" data-close-sheet></div>
+    <section class="sheet__panel" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+      <div class="sheet__handle" aria-hidden="true"></div>
+      <button class="sheet__close" type="button" aria-label="Đóng" data-close-sheet>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <div class="sheet__appicon" aria-hidden="true">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 0 0 6v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a2 2 0 0 0 0-6V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z"/><path d="M13 5v2M13 11v2M13 17v2"/></svg>
+      </div>
+      <h2 id="sheet-title">Thêm Mã Ngon ra màn hình chính</h2>
+      <p class="sheet__lead">Lần sau chỉ cần bấm biểu tượng là có mã, không phải tìm lại link.</p>
+      <ul class="checks">
+        <li>Chỉ là lối tắt, không phải tải hay cài app</li>
+        <li>Mở lên toàn màn hình, nhìn như một app</li>
+        <li>Không cần đăng nhập, không lấy thông tin của bạn</li>
+      </ul>
+      <div id="sheet-steps" class="sheet__steps"></div>
+      <div class="sheet__actions">
+        <button id="install-primary" class="btn btn--primary btn--block" type="button">Thêm lối tắt</button>
+        <button id="install-later" class="btn btn--text btn--block" type="button">Để sau</button>
+      </div>
+    </section>
+  </div>
+
+  <template id="tpl-ios">
+    <p class="note">Mở trang <b>mangon.vercel.app</b> bằng <b>Safari</b>, rồi làm 3 bước:</p>
+    <ol class="steps">
+      <li><span class="steps__num">1</span><span>Bấm nút <b>Chia sẻ</b> (ô vuông có mũi tên đi lên) ở thanh dưới cùng</span>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m8 7 4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg></li>
+      <li><span class="steps__num">2</span><span>Kéo xuống, chọn <b>Thêm vào MH chính</b></span>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg></li>
+      <li><span class="steps__num">3</span><span>Bấm <b>Thêm</b> ở góc trên bên phải. Xong!</span></li>
+    </ol>
+  </template>
+
+  <template id="tpl-android">
+    <p class="note">Máy có thể hiện chữ <b>“Cài đặt”</b>, nhưng thực chất chỉ tạo biểu tượng mở web, không tốn dung lượng.</p>
+  </template>
+
+  <template id="tpl-android-manual">
+    <p class="note">Máy có thể hiện chữ <b>“Cài đặt”</b>, nhưng thực chất chỉ tạo biểu tượng mở web, không tốn dung lượng.</p>
+    <ol class="steps">
+      <li><span class="steps__num">1</span><span>Bấm <b>dấu ba chấm</b> ở góc trên bên phải Chrome</span>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></li>
+      <li><span class="steps__num">2</span><span>Chọn <b>Thêm vào màn hình chính</b> (có máy ghi “Cài đặt ứng dụng”)</span></li>
+      <li><span class="steps__num">3</span><span>Bấm <b>Thêm</b> hoặc <b>Cài đặt</b>. Biểu tượng Mã Ngon sẽ hiện ra.</span></li>
+    </ol>
+  </template>
+
+  <template id="tpl-inapp">
+    <p class="note">Bạn đang mở Mã Ngon bên trong một ứng dụng khác (TikTok, Facebook, Zalo…). Ở đây không tạo lối tắt được.</p>
+    <ol class="steps">
+      <li><span class="steps__num">1</span><span>Bấm <b>dấu ba chấm</b> ở góc trên màn hình</span></li>
+      <li><span class="steps__num">2</span><span>Chọn <b>Mở bằng trình duyệt</b> (Safari hoặc Chrome)</span></li>
+      <li><span class="steps__num">3</span><span>Bấm lại nút <b>Thêm vào màn hình</b> trên Mã Ngon</span></li>
+    </ol>
+  </template>
+
+  <template id="tpl-desktop">
+    <p class="note">Trên máy tính: bấm biểu tượng cài đặt ở cuối thanh địa chỉ của Chrome hoặc Edge. Trên điện thoại: quét mã QR ở cuối trang rồi thêm ra màn hình chính.</p>
+  </template>
+</body>
+</html>

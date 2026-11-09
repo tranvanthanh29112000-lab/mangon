@@ -1,0 +1,7 @@
+{
+  "name": "mangon",
+  "private": true,
+  "type": "module",
+  "description": "Mã Ngon – dán link sản phẩm, nhận mã giảm giá",
+  "engines": { "node": ">=18" }
+}
