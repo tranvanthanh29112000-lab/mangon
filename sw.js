@@ -1,5 +1,5 @@
 /* Mã Ngon – service worker: mở nhanh, vẫn hiện giao diện khi mạng yếu */
-const VERSION = 'mangon-v1';
+const VERSION = 'mangon-v2';
 const SHELL = [
   '/',
   '/index.html',
