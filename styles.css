@@ -239,3 +239,27 @@ h1, h2, h3 { line-height: 1.2; }
   .product__actions .btn { flex: 1 1 auto; }
   .footer__qr { display: none; }
 }
+
+/* Nút cố định + gửi bạn bè */
+.quick { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 4px; }
+.btn--quick { background: var(--cam-nhat); color: var(--cam-dam); border: 2px solid var(--cam); min-height: 52px; }
+.btn--quick:hover { background: var(--cam); color: var(--trang); }
+.quick .btn { flex: 1 1 260px; max-width: 400px; }
+
+/* Chia sẻ trên từng mã */
+.share { display: flex; align-items: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.share__label { font-size: 13px; color: var(--chu-mo); margin-right: 2px; }
+.share__btn {
+  flex: 1 1 0; min-width: 0; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  border-radius: 10px; border: 1px solid var(--vien); background: var(--trang); color: var(--chu);
+  font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.share__btn--mess { color: #1D4ED8; }
+.share__btn--zalo { color: #0B5ED7; }
+.share__btn:hover { border-color: currentColor; }
+.card.is-shared { border: 2px solid var(--cam); box-shadow: 0 0 0 4px var(--cam-nhat); }
+
+@media (max-width: 760px) {
+  .quick { flex-direction: column; align-items: stretch; }
+  .quick .btn { max-width: none; flex: 0 0 auto; font-size: 15px; }
+}

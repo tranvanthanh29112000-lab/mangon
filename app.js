@@ -69,12 +69,17 @@
     try { u = new URL(raw); } catch (e) { return { error: 'invalid' }; }
     if (!isShopHost(u.hostname)) return { error: 'host' };
 
-    var path = decodeURIComponent(u.pathname);
+    var path;
+    try { path = decodeURIComponent(u.pathname); } catch (e) { path = u.pathname; }
     var m = path.match(/-i\.(\d+)\.(\d+)/) ||
             path.match(/\/product\/(\d+)\/(\d+)/) ||
+            path.match(/\/opaanlp\/(\d+)\/(\d+)/) ||
             path.match(/^\/[^/]+\/(\d+)\/(\d+)\/?$/);
+    var qs = u.searchParams;
+    if (!m && qs.get('shopid') && qs.get('itemid')) m = [null, qs.get('shopid'), qs.get('itemid')];
     if (m) {
-      return { url: u.origin + u.pathname, shopId: m[1], itemId: m[2] };
+      // Dùng link sản phẩm dạng chuẩn: app Shopee trên iPhone mở được chắc chắn
+      return { url: 'https://shopee.vn/product/' + m[1] + '/' + m[2], shopId: m[1], itemId: m[2] };
     }
     var host = u.hostname.toLowerCase();
     if (SHORT_HOSTS.indexOf(host) !== -1) return { url: u.href, short: true };
@@ -188,12 +193,17 @@
     var actions = el('div', 'card__actions');
     var href = null;
     var label = st.state === 'sap' ? 'Lưu trước' : 'Lưu mã';
+    var fallback = state.settings.linkNutCoDinh || state.settings.linkMacDinh;
     if (v.link) {
       href = affLink(v.link, v.id);
-    } else if (v.ma && state.settings.linkMacDinh) {
-      // Mã nhập tay: sao chép mã rồi mở app qua link affiliate mặc định
-      href = affLink(state.settings.linkMacDinh, v.id);
+    } else if (v.ma && fallback) {
+      // Mã nhập tay: sao chép mã rồi mở app qua link affiliate
+      href = affLink(fallback, v.id);
       label = 'Sao chép mã & mở app';
+    } else if (fallback) {
+      // Mã dạng banner chưa có link riêng: mở app qua link affiliate để khách lưu mã
+      href = affLink(fallback, v.id);
+      label = 'Mở app lưu mã';
     }
     var btn;
     if (href) {
@@ -210,8 +220,87 @@
       btn.setAttribute('aria-disabled', 'true');
     }
     actions.appendChild(btn);
+    actions.appendChild(shareRow(v));
     card.appendChild(actions);
+    card.id = 'ma-' + cleanSub(v.id);
     return card;
+  }
+
+  /* ---------- Chia sẻ qua Messenger / Zalo ----------
+   * Chia sẻ link của Mã Ngon (kèm ?ma=...), bạn bè mở ra sẽ thấy đúng mã đó
+   * và bấm "Lưu mã" vẫn đi qua link affiliate của chủ web.
+   */
+  var SITE = 'https://mangonvn.vercel.app/';
+  function shareUrlFor(v) { return SITE + (v ? '?ma=' + encodeURIComponent(v.id) : ''); }
+  function shareTextFor(v) {
+    if (!v) return 'Mã Ngon: dán link sản phẩm là có mã giảm giá, lưu mã 1 chạm';
+    var t = 'Mã ' + (v.tieuDe || 'giảm giá');
+    if (v.dieuKien) t += ' ' + v.dieuKien.toLowerCase();
+    return t + ' – lưu mã tại Mã Ngon';
+  }
+
+  function shareMessenger(v) {
+    var url = shareUrlFor(v);
+    if (isMobile) {
+      window.location.href = 'fb-messenger://share/?link=' + encodeURIComponent(url);
+    } else {
+      window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), '_blank', 'noopener');
+    }
+  }
+
+  function shareSheet(v, appName) {
+    var url = shareUrlFor(v);
+    var text = shareTextFor(v);
+    if (navigator.share) {
+      navigator.share({ title: 'Mã Ngon', text: text, url: url }).catch(function () {});
+    } else {
+      copyLink(text + ' ' + url, appName);
+    }
+  }
+
+  function copyLink(text, appName) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        toast('Đã sao chép link' + (appName ? ', mở ' + appName + ' và dán để gửi' : ''));
+      }, function () {});
+    }
+  }
+
+  function iconSvg(path) {
+    var s = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + path + '</svg>';
+    var span = document.createElement('span');
+    span.innerHTML = s; // chuỗi cố định trong code, không có dữ liệu bên ngoài
+    return span.firstChild;
+  }
+
+  function shareRow(v) {
+    var row = el('div', 'share');
+    row.appendChild(el('span', 'share__label', 'Gửi bạn bè:'));
+    var mess = el('button', 'share__btn share__btn--mess');
+    mess.type = 'button';
+    mess.setAttribute('aria-label', 'Gửi mã ' + (v.tieuDe || '') + ' qua Messenger');
+    mess.appendChild(iconSvg('<path d="M12 3C7 3 3 6.7 3 11.3c0 2.5 1.2 4.7 3.1 6.2V21l2.9-1.6c.9.3 1.9.4 3 .4 5 0 9-3.7 9-8.3S17 3 12 3z"/><path d="m7.5 13.5 3-3 2.5 2 3.5-3.5"/>'));
+    mess.appendChild(el('span', null, 'Messenger'));
+    mess.addEventListener('click', function () { shareMessenger(v); });
+    var zalo = el('button', 'share__btn share__btn--zalo');
+    zalo.type = 'button';
+    zalo.setAttribute('aria-label', 'Gửi mã ' + (v.tieuDe || '') + ' qua Zalo');
+    zalo.appendChild(iconSvg('<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 8h6l-6 6h6"/>'));
+    zalo.appendChild(el('span', null, 'Zalo'));
+    zalo.addEventListener('click', function () { shareSheet(v, 'Zalo'); });
+    row.appendChild(mess);
+    row.appendChild(zalo);
+    return row;
+  }
+
+  function highlightShared() {
+    var id;
+    try { id = new URLSearchParams(location.search).get('ma'); } catch (e) { id = null; }
+    if (!id) return;
+    var card = document.getElementById('ma-' + cleanSub(id));
+    if (!card) return;
+    card.classList.add('is-shared');
+    setTimeout(function () { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 300);
   }
 
   function render() {
@@ -242,6 +331,7 @@
       var txt = 'Tìm thấy ' + list.length + ' mã có thể dùng';
       if (exactCount) txt += ', trong đó ' + exactCount + ' mã riêng của shop hoặc sản phẩm này';
       txt += '. Có thể dùng cùng lúc 1 mã sàn, 1 mã shop và 1 mã freeship.';
+      if (p.unknown) txt += ' Bấm “Lưu mã” ở dưới trước, rồi quay lại sản phẩm để mua.';
       $('product-summary').textContent = txt;
     }
   }
@@ -283,12 +373,16 @@
     applyProduct(p);
   }
 
+  function submitSearch() { onSearch({ preventDefault: function () {} }); }
+
   function fallbackShort(url) {
-    // Không đọc được link rút gọn: vẫn hiện mã chung, nút mở sản phẩm vẫn đi qua link affiliate
+    // Không đọc được link rút gọn: vẫn hiện mã chung. Nút mở sản phẩm dùng nguyên link khách dán,
+    // vì bọc link rút gọn vào affiliate làm app Shopee trên iPhone báo "không tìm thấy trang".
+    // Khách bấm "Lưu mã" (link affiliate) trước khi mua thì vẫn được tính.
     state.product = { url: url, shopId: null, itemId: null, unknown: true };
     $('product-result').hidden = false;
     $('product-title').textContent = 'Đã nhận link sản phẩm';
-    $('buy-link').href = affLink(url, 'sanpham', true) || url;
+    $('buy-link').href = safeLink(url) || '#';
     showMsg('');
     render();
     $('product-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -422,7 +516,10 @@
         var report = (s.baoMaLoi && safeLink(s.baoMaLoi)) || group;
         if (report) $('report-link').href = report;
         else $('report-link').parentElement.hidden = true;
+        var fixedHref = affLink(s.linkNutCoDinh || s.linkMacDinh || 'https://shopee.vn/', 'nutcodinh');
+        if (fixedHref) $('open-shopee').href = fixedHref;
         render();
+        highlightShared();
       })
       .catch(function () {
         $('empty-msg').hidden = false;
@@ -455,11 +552,29 @@
       var paste = $('paste-btn');
       paste.hidden = false;
       paste.addEventListener('click', function () {
-        navigator.clipboard.readText().then(function (t) {
-          if (t) { $('link-input').value = t.trim(); $('search-form').requestSubmit ? $('search-form').requestSubmit() : onSearch(new Event('submit')); }
-        }).catch(function () { $('link-input').focus(); });
+        var manual = function () {
+          $('link-input').focus();
+          toast('Chạm giữ vào ô trống rồi chọn “Dán”');
+        };
+        try {
+          navigator.clipboard.readText().then(function (t) {
+            if (t && t.trim()) { $('link-input').value = t.trim(); submitSearch(); }
+            else manual();
+          }).catch(manual);
+        } catch (e) { manual(); }
       });
     }
+    // Dán bằng tay (chạm giữ → Dán, hay gặp trên iPhone) thì tự tìm luôn, không cần bấm "Tìm mã"
+    $('link-input').addEventListener('paste', function () {
+      setTimeout(function () { if ($('link-input').value.trim()) submitSearch(); }, 60);
+    });
+
+    var fixed = $('open-shopee');
+    if (fixed) {
+      fixed.addEventListener('click', function () { markSaved(); });
+    }
+    var shareSite = $('share-site');
+    if (shareSite) shareSite.addEventListener('click', function () { shareSheet(null, 'Zalo'); });
 
     // Lối tắt
     if (!isStandalone()) {

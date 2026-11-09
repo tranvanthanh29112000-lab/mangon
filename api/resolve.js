@@ -8,7 +8,8 @@ function isShopHost(host) {
 }
 
 function hasProduct(url) {
-  return /-i\.\d+\.\d+/.test(url) || /\/product\/\d+\/\d+/.test(url);
+  return /-i\.\d+\.\d+/.test(url) || /\/(?:product|opaanlp)\/\d+\/\d+/.test(url) ||
+    (/[?&]shopid=\d+/i.test(url) && /[?&]itemid=\d+/i.test(url));
 }
 
 export default async function handler(req, res) {
@@ -21,7 +22,7 @@ export default async function handler(req, res) {
     for (let i = 0; i < 6; i++) {
       const r = await fetch(current.href, {
         redirect: 'manual',
-        headers: { 'User-Agent': 'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Mobile Safari/537.36' }
+        headers: { 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1' }
       });
       const loc = r.headers.get('location');
       if (loc) {
@@ -34,7 +35,7 @@ export default async function handler(req, res) {
       if (!hasProduct(current.href)) {
         // Một số trang chuyển hướng bằng nội dung HTML
         const body = (await r.text()).slice(0, 200000);
-        const m = body.match(/https?:\\?\/\\?\/(?:[\w-]+\.)*shopee\.vn[^"'\s<>]*(?:-i\.\d+\.\d+|\/product\/\d+\/\d+)[^"'\s<>]*/i);
+        const m = body.match(/https?:\\?\/\\?\/(?:[\w-]+\.)*shopee\.vn[^"'\s<>]*(?:-i\.\d+\.\d+|\/(?:product|opaanlp)\/\d+\/\d+)[^"'\s<>]*/i);
         if (m) current = new URL(m[0].replace(/\\\//g, '/'));
       }
       break;

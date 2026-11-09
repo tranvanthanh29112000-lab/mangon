@@ -65,6 +65,8 @@ Phần `caiDat` ở đầu file:
 - `capNhatLuc`: chữ "Cập nhật lúc…" hiện trên web.
 - `nhomSanSale`: link nhóm Zalo hoặc Facebook. Điền vào thì menu hiện nút "Nhóm săn sale".
 - `baoMaLoi`: link để khách báo mã lỗi (có thể dùng luôn link nhóm).
+- `affiliateId`: ID affiliate của bạn. Mọi link Shopee trên web tự được bọc bằng ID này.
+- `linkNutCoDinh`: trang mở ra khi khách bấm nút "Mở Shopee cùng nhiều mã giảm giá" (mặc định trang chủ Shopee). Muốn đổi sang trang mã hay trang sale thì dán link trang đó vào đây.
 
 Lưu ý khi sửa JSON: chuỗi đặt trong ngoặc kép, các khối ngăn nhau bằng dấu phẩy, khối cuối cùng không có dấu phẩy. Nếu web không hiện mã sau khi sửa, gần như chắc chắn là thiếu hoặc thừa dấu phẩy.
 
