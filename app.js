@@ -132,6 +132,35 @@
     } catch (e) { return null; }
   }
 
+  /* ---------- Bọc link affiliate ----------
+   * Mọi link Shopee trên web được bọc bằng ID affiliate (caiDat.affiliateId),
+   * theo dạng link affiliate Shopee hướng dẫn:
+   * https://s.shopee.vn/an_redir?origin_link=...&affiliate_id=...&sub_id=...
+   */
+  function cleanSub(s) {
+    return String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 40) || 'web';
+  }
+
+  function isAffLink(u) {
+    var h = u.hostname.toLowerCase();
+    if (u.pathname.indexOf('/an_redir') === 0) return true;
+    // Link rút gọn đã tạo sẵn trong trang affiliate (s.shopee.vn/xxxx, shope.ee/xxxx)
+    return (h === 's.shopee.vn' || h === 'shope.ee') && /^\/[A-Za-z0-9]+\/?$/.test(u.pathname);
+  }
+
+  function affLink(href, sub, forceWrap) {
+    var safe = safeLink(href);
+    if (!safe) return null;
+    var id = state.settings && state.settings.affiliateId;
+    var u = new URL(safe);
+    if (!id || !isShopHost(u.hostname)) return safe;
+    if (!forceWrap && isAffLink(u)) return safe;
+    if (u.pathname.indexOf('/an_redir') === 0) return safe;
+    return 'https://s.shopee.vn/an_redir?origin_link=' + encodeURIComponent(safe) +
+      '&affiliate_id=' + encodeURIComponent(String(id)) +
+      '&sub_id=mangon-' + cleanSub(sub);
+  }
+
   function cardFor(v, st, isMatch) {
     var card = el('article', 'card' + (isMatch ? ' is-match' : ''));
     var top = el('div', 'card__top');
@@ -157,10 +186,18 @@
     }
 
     var actions = el('div', 'card__actions');
-    var href = v.link ? safeLink(v.link) : null;
+    var href = null;
+    var label = st.state === 'sap' ? 'Lưu trước' : 'Lưu mã';
+    if (v.link) {
+      href = affLink(v.link, v.id);
+    } else if (v.ma && state.settings.linkMacDinh) {
+      // Mã nhập tay: sao chép mã rồi mở app qua link affiliate mặc định
+      href = affLink(state.settings.linkMacDinh, v.id);
+      label = 'Sao chép mã & mở app';
+    }
     var btn;
     if (href) {
-      btn = el('a', 'btn btn--primary', st.state === 'sap' ? 'Lưu trước' : 'Lưu mã');
+      btn = el('a', 'btn btn--primary', label);
       btn.href = href;
       btn.target = '_blank';
       btn.rel = 'noopener';
@@ -221,7 +258,7 @@
     var box = $('product-result');
     box.hidden = false;
     $('product-title').textContent = p.itemId ? 'Sản phẩm mã số ' + p.itemId : 'Sản phẩm của shop mã số ' + p.shopId;
-    $('buy-link').href = '/api/go?u=' + encodeURIComponent(p.url);
+    $('buy-link').href = affLink(p.url, 'sanpham', true) || p.url;
     showMsg('');
     render();
     box.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -239,18 +276,22 @@
       showMsg('Đang đọc link…');
       resolveShort(p.url).then(function (r) {
         if (r && !r.error && (r.itemId || r.shopId)) applyProduct(r);
-        else fallbackShort();
-      }).catch(fallbackShort);
+        else fallbackShort(p.url);
+      }).catch(function () { fallbackShort(p.url); });
       return;
     }
     applyProduct(p);
   }
 
-  function fallbackShort() {
-    state.product = null;
+  function fallbackShort(url) {
+    // Không đọc được link rút gọn: vẫn hiện mã chung, nút mở sản phẩm vẫn đi qua link affiliate
+    state.product = { url: url, shopId: null, itemId: null, unknown: true };
+    $('product-result').hidden = false;
+    $('product-title').textContent = 'Đã nhận link sản phẩm';
+    $('buy-link').href = affLink(url, 'sanpham', true) || url;
+    showMsg('');
     render();
-    showMsg('Chưa đọc được link rút gọn này. Bên dưới là các mã toàn sàn và freeship dùng được cho mọi món.', true);
-    $('ma-hom-nay').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    $('product-result').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function clearProduct() {

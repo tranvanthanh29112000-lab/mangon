@@ -1,4 +1,4 @@
-# Mã Ngon – mangon.vercel.app
+# Mã Ngon – mangonvn.vercel.app
 
 Web app tìm mã giảm giá: khách dán link sản phẩm → hiện các mã dùng được → bấm "Lưu mã" là mở app mua sắm với mã đã lưu. Khách có thể thêm web ra màn hình chính như một app.
 
@@ -18,7 +18,7 @@ Web app tìm mã giảm giá: khách dán link sản phẩm → hiện các mã 
 1. Tạo tài khoản **GitHub** (github.com) và **Vercel** (vercel.com), đăng nhập Vercel bằng GitHub.
 2. Trên GitHub: tạo repository mới tên **mangon** → bấm "uploading an existing file" → kéo **toàn bộ file trong thư mục này** vào (giữ nguyên thư mục `api` và `icons`) → Commit.
 3. Trên Vercel: **Add New → Project** → chọn repo `mangon` → **Deploy**. Không cần chỉnh gì thêm.
-4. Nếu tên `mangon` còn trống, web sẽ ở **https://mangon.vercel.app**. Nếu đã có người dùng, vào Settings → Domains để đổi tên khác (ví dụ `mangon-vn.vercel.app`). Khi đó nhớ tạo lại mã QR với tên mới.
+4. Nếu tên `mangon` còn trống, web sẽ ở **https://mangonvn.vercel.app**. Nếu đã có người dùng, vào Settings → Domains để đổi tên khác (ví dụ `mangon-vn.vercel.app`). Khi đó nhớ tạo lại mã QR với tên mới.
 
 Từ đó, mỗi lần bạn sửa file trên GitHub, Vercel tự cập nhật web sau khoảng 1 phút.
 

@@ -1,0 +1,33 @@
+# Tự cập nhật ưu đãi từ Open API mỗi giờ, chạy miễn phí trên GitHub (không cần bật laptop).
+# Chưa thêm secret SHOPEE_APP_ID / SHOPEE_SECRET thì tự bỏ qua, không làm gì.
+name: Cap nhat ma
+
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cap-nhat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Lay uu dai tu Open API
+        env:
+          SHOPEE_APP_ID: ${{ secrets.SHOPEE_APP_ID }}
+          SHOPEE_SECRET: ${{ secrets.SHOPEE_SECRET }}
+        run: node scripts/lay-uu-dai-api.mjs
+      - name: Luu thay doi
+        run: |
+          if git diff --quiet vouchers.json; then echo "Khong co gi moi"; exit 0; fi
+          git config user.name "mangon-bot"
+          git config user.email "mangon-bot@users.noreply.github.com"
+          git add vouchers.json
+          git commit -m "Cap nhat ma tu Open API"
+          git push
