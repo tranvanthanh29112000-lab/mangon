@@ -1,6 +1,6 @@
 {
   "caiDat": {
-    "capNhatLuc": "11:12 ngày 10/11/2026",
+    "capNhatLuc": "17:13 ngày 10/11/2026",
     "affiliateId": "17325560313",
     "linkMacDinh": "https://shopee.vn/",
     "linkNutCoDinh": "https://shopee.vn/",
@@ -9,46 +9,46 @@
   },
   "danhSachMa": [
     {
-      "id": "xtra-25-100k-1011",
+      "id": "xtra-25-100k",
       "nguon": "claude",
       "loai": "toan-san",
       "tieuDe": "Giảm 25%",
       "dieuKien": "Voucher Xtra · Tối đa 100K",
       "donToiThieu": 100000,
-      "khungGio": "Khung 0h",
-      "ghiChu": "Chỉ SP gắn tag Voucher Xtra; có thêm lượt",
+      "khungGio": "0h, back 9h/12h/18h",
+      "ghiChu": "Chỉ SP gắn tag Voucher Xtra · Làm mới mỗi ngày",
       "ma": "",
       "link": "",
       "batDau": "2026-11-10T00:00:00+07:00",
-      "ketThuc": "2026-11-10T23:59:00+07:00"
+      "ketThuc": "2026-11-11T23:59:00+07:00"
     },
     {
-      "id": "xtra-20-300k-1011",
+      "id": "xtra-20-300k",
       "nguon": "claude",
       "loai": "toan-san",
       "tieuDe": "Giảm 20%",
       "dieuKien": "Voucher Xtra · Tối đa 300K",
       "donToiThieu": 500000,
-      "khungGio": "Khung 0h",
-      "ghiChu": "Chỉ SP gắn tag Voucher Xtra; có thêm lượt",
+      "khungGio": "0h, back 9h/12h/18h",
+      "ghiChu": "Chỉ SP gắn tag Voucher Xtra · Làm mới mỗi ngày",
       "ma": "",
       "link": "",
       "batDau": "2026-11-10T00:00:00+07:00",
-      "ketThuc": "2026-11-10T23:59:00+07:00"
+      "ketThuc": "2026-11-11T23:59:00+07:00"
     },
     {
-      "id": "xtra-20-2tr-1011",
+      "id": "xtra-20-2tr",
       "nguon": "claude",
       "loai": "toan-san",
       "tieuDe": "Giảm 20%",
       "dieuKien": "Voucher Xtra · Tối đa 2 triệu",
       "donToiThieu": 2000000,
-      "khungGio": "Khung 0h",
-      "ghiChu": "Chỉ SP gắn tag Voucher Xtra; có thêm lượt",
+      "khungGio": "0h, back 9h/12h/18h",
+      "ghiChu": "Chỉ SP gắn tag Voucher Xtra · Làm mới mỗi ngày",
       "ma": "",
       "link": "",
       "batDau": "2026-11-10T00:00:00+07:00",
-      "ketThuc": "2026-11-10T23:59:00+07:00"
+      "ketThuc": "2026-11-11T23:59:00+07:00"
     },
     {
       "id": "vip-40-500k-1011",
@@ -107,34 +107,6 @@
       "ketThuc": "2026-11-10T23:59:00+07:00"
     },
     {
-      "id": "vip-vi-22-350k-1011",
-      "nguon": "claude",
-      "loai": "toan-san",
-      "tieuDe": "Giảm 22%",
-      "dieuKien": "VIP sẵn ví · Tối đa 350K",
-      "donToiThieu": 500000,
-      "khungGio": "Cả ngày",
-      "ghiChu": "Cần ShopeeVIP · Lọc tài khoản",
-      "ma": "",
-      "link": "",
-      "batDau": "2026-11-10T00:00:00+07:00",
-      "ketThuc": "2026-11-10T23:59:00+07:00"
-    },
-    {
-      "id": "vip-vi-22-250k-1011",
-      "nguon": "claude",
-      "loai": "toan-san",
-      "tieuDe": "Giảm 22%",
-      "dieuKien": "VIP sẵn ví · Tối đa 250K",
-      "donToiThieu": 350000,
-      "khungGio": "Cả ngày",
-      "ghiChu": "Cần ShopeeVIP · Lọc tài khoản",
-      "ma": "",
-      "link": "",
-      "batDau": "2026-11-10T00:00:00+07:00",
-      "ketThuc": "2026-11-10T23:59:00+07:00"
-    },
-    {
       "id": "toan-san-24-2tr-1011",
       "nguon": "claude",
       "loai": "toan-san",
@@ -142,21 +114,21 @@
       "dieuKien": "Tối đa 2 triệu",
       "donToiThieu": 3000000,
       "khungGio": "Cả ngày",
-      "ghiChu": "Lọc tài khoản",
+      "ghiChu": "Ưu đãi hội viên · Lọc tài khoản",
       "ma": "",
       "link": "",
       "batDau": "2026-11-10T00:00:00+07:00",
       "ketThuc": "2026-11-10T23:59:00+07:00"
     },
     {
-      "id": "toan-san-22-1tr-1011",
+      "id": "kol-ig-50-50k-1011",
       "nguon": "claude",
       "loai": "toan-san",
-      "tieuDe": "Giảm 22%",
-      "dieuKien": "Tối đa 1 triệu",
-      "donToiThieu": 1500000,
-      "khungGio": "Cả ngày",
-      "ghiChu": "Lọc tài khoản",
+      "tieuDe": "Giảm 50%",
+      "dieuKien": "Shopee x Instagram · Tối đa 50K",
+      "donToiThieu": 50000,
+      "khungGio": "Khung 0h",
+      "ghiChu": "Số lượt có hạn · Lọc tài khoản",
       "ma": "",
       "link": "",
       "batDau": "2026-11-10T00:00:00+07:00",
@@ -191,20 +163,6 @@
       "ketThuc": "2026-11-10T23:59:00+07:00"
     },
     {
-      "id": "bach-hoa-25-150k-1011",
-      "nguon": "claude",
-      "loai": "nganh-hang",
-      "tieuDe": "Bách hoá -25%",
-      "dieuKien": "Tối đa 150K",
-      "donToiThieu": 500000,
-      "khungGio": "Khung 0h",
-      "ghiChu": "Lưu ở banner Bách hoá",
-      "ma": "",
-      "link": "",
-      "batDau": "2026-11-10T00:00:00+07:00",
-      "ketThuc": "2026-11-10T23:59:00+07:00"
-    },
-    {
       "id": "thiet-yeu-22-100k-1011",
       "nguon": "claude",
       "loai": "nganh-hang",
@@ -219,18 +177,18 @@
       "ketThuc": "2026-11-10T23:59:00+07:00"
     },
     {
-      "id": "thiet-yeu-22-70k-1011",
+      "id": "spaylater-11tr-1111",
       "nguon": "claude",
-      "loai": "nganh-hang",
-      "tieuDe": "Thiết yếu -22%",
-      "dieuKien": "Tối đa 70K",
-      "donToiThieu": 99000,
-      "khungGio": "Cả ngày",
-      "ghiChu": "Hàng thiết yếu · Số lượt có hạn",
+      "loai": "toan-san",
+      "tieuDe": "Giảm 11 triệu",
+      "dieuKien": "Thanh toán SPayLater",
+      "donToiThieu": 5000000,
+      "khungGio": "0h, 9h, 12h, 15h, 21h",
+      "ghiChu": "20 mã mỗi khung · Mỗi người 1 lần · Lọc tài khoản",
       "ma": "",
-      "link": "https://shopee.vn/m/hang-thiet-yeu",
-      "batDau": "2026-11-10T00:00:00+07:00",
-      "ketThuc": "2026-11-10T23:59:00+07:00"
+      "link": "https://shopee.vn/m/11-11",
+      "batDau": "2026-11-11T00:00:00+07:00",
+      "ketThuc": "2026-11-11T23:59:00+07:00"
     },
     {
       "id": "freeship-0d-1111-sale",
