@@ -1,6 +1,6 @@
 {
   "caiDat": {
-    "capNhatLuc": "08:18 ngày 11/11/2026",
+    "capNhatLuc": "11:14 ngày 11/11/2026",
     "affiliateId": "17325560313",
     "linkMacDinh": "https://shopee.vn/",
     "linkNutCoDinh": "https://shopee.vn/",
@@ -217,6 +217,20 @@
       "link": "https://shopee.vn/m/11-11",
       "batDau": "2026-11-10T00:00:00+07:00",
       "ketThuc": "2026-11-13T23:59:00+07:00"
+    },
+    {
+      "id": "xtra-25-100k-back-1111",
+      "nguon": "claude",
+      "loai": "toan-san",
+      "tieuDe": "Xtra giảm 25%",
+      "dieuKien": "Voucher Xtra · Tối đa 100K",
+      "donToiThieu": 100000,
+      "khungGio": "Back lượt 12h, 18h",
+      "ghiChu": "Chỉ SP gắn tag Voucher Xtra · Số lượt có hạn",
+      "ma": "",
+      "link": "",
+      "batDau": "2026-11-11T12:00:00+07:00",
+      "ketThuc": "2026-11-11T23:59:00+07:00"
     }
   ]
 }
