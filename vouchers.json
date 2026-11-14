@@ -1,6 +1,6 @@
 {
   "caiDat": {
-    "capNhatLuc": "11:13 ngày 14/11/2026",
+    "capNhatLuc": "17:12 ngày 14/11/2026",
     "affiliateId": "17325560313",
     "linkMacDinh": "https://shopee.vn/",
     "linkNutCoDinh": "https://shopee.vn/",
@@ -9,7 +9,7 @@
   },
   "danhSachMa": [
     {
-      "id": "shopeevip-25-200k-1411-b",
+      "id": "shopeevip-25-200k-1411-c",
       "nguon": "claude",
       "loai": "toan-san",
       "tieuDe": "Giảm 25%",
@@ -23,7 +23,7 @@
       "ketThuc": "2026-11-14T23:59:00+07:00"
     },
     {
-      "id": "kol-ig-50-50k-1411-b",
+      "id": "kol-ig-50-50k-1411-c",
       "nguon": "claude",
       "loai": "toan-san",
       "tieuDe": "Giảm 50%",
@@ -37,7 +37,7 @@
       "ketThuc": "2026-11-15T23:59:00+07:00"
     },
     {
-      "id": "kol-fb-30-50k-1411-b",
+      "id": "kol-fb-30-50k-1411-c",
       "nguon": "claude",
       "loai": "toan-san",
       "tieuDe": "Giảm 30%",
@@ -51,7 +51,7 @@
       "ketThuc": "2026-11-15T23:59:00+07:00"
     },
     {
-      "id": "bach-hoa-30-100k-1411-b",
+      "id": "bach-hoa-30-100k-1411-c",
       "nguon": "claude",
       "loai": "nganh-hang",
       "tieuDe": "Bách hóa -30%",
@@ -65,7 +65,7 @@
       "ketThuc": "2026-11-14T23:59:00+07:00"
     },
     {
-      "id": "bach-hoa-25-150k-1411-b",
+      "id": "bach-hoa-25-150k-1411-c",
       "nguon": "claude",
       "loai": "nganh-hang",
       "tieuDe": "Bách hóa -25%",
@@ -79,7 +79,7 @@
       "ketThuc": "2026-11-14T23:59:00+07:00"
     },
     {
-      "id": "xtra-25-100k-1411-b",
+      "id": "xtra-25-100k-1411-c",
       "nguon": "claude",
       "loai": "toan-san",
       "tieuDe": "Xtra giảm 25%",
@@ -93,7 +93,7 @@
       "ketThuc": "2026-11-14T23:59:00+07:00"
     },
     {
-      "id": "xtra-20-300k-1411-b",
+      "id": "xtra-20-300k-1411-c",
       "nguon": "claude",
       "loai": "toan-san",
       "tieuDe": "Xtra giảm 20%",
@@ -107,7 +107,7 @@
       "ketThuc": "2026-11-14T23:59:00+07:00"
     },
     {
-      "id": "xtra-20-2tr-1411-b",
+      "id": "xtra-20-2tr-1411-c",
       "nguon": "claude",
       "loai": "toan-san",
       "tieuDe": "Xtra giảm 20%",
@@ -118,20 +118,6 @@
       "ma": "",
       "link": "",
       "batDau": "2026-11-14T09:00:00+07:00",
-      "ketThuc": "2026-11-14T23:59:00+07:00"
-    },
-    {
-      "id": "game-thu-30-1411-b",
-      "nguon": "claude",
-      "loai": "toan-san",
-      "tieuDe": "Giảm 30%",
-      "dieuKien": "Ưu đãi game thủ · Gần toàn sàn",
-      "donToiThieu": 0,
-      "khungGio": "Khung 0h",
-      "ghiChu": "Lọc tài khoản · Số lượt có hạn",
-      "ma": "",
-      "link": "",
-      "batDau": "2026-11-14T00:00:00+07:00",
       "ketThuc": "2026-11-14T23:59:00+07:00"
     }
   ]
