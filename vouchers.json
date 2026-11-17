@@ -1,6 +1,6 @@
 {
   "caiDat": {
-    "capNhatLuc": "17:15 ngày 17/11/2026",
+    "capNhatLuc": "23:15 ngày 17/11/2026",
     "affiliateId": "17325560313",
     "linkMacDinh": "https://shopee.vn/",
     "linkNutCoDinh": "https://shopee.vn/",
@@ -133,6 +133,34 @@
       "link": "",
       "batDau": "2026-11-17T12:00:00+07:00",
       "ketThuc": "2026-11-17T23:59:00+07:00"
+    },
+    {
+      "id": "shopee-xu-ly-20-35k",
+      "nguon": "claude",
+      "loai": "nganh-hang",
+      "tieuDe": "Xử Lý -20%",
+      "dieuKien": "Shopee Xử Lý · Tối đa 35K",
+      "donToiThieu": 99000,
+      "khungGio": "Cả ngày",
+      "ghiChu": "Sản phẩm Shopee Xử Lý · HSD 30/11",
+      "ma": "",
+      "link": "",
+      "batDau": "2026-11-16T00:00:00+07:00",
+      "ketThuc": "2026-11-30T23:59:00+07:00"
+    },
+    {
+      "id": "shopee-xu-ly-20-100k",
+      "nguon": "claude",
+      "loai": "nganh-hang",
+      "tieuDe": "Xử Lý -20%",
+      "dieuKien": "Shopee Xử Lý · Tối đa 100K",
+      "donToiThieu": 299000,
+      "khungGio": "Cả ngày",
+      "ghiChu": "Sản phẩm Shopee Xử Lý · HSD 30/11",
+      "ma": "",
+      "link": "",
+      "batDau": "2026-11-16T00:00:00+07:00",
+      "ketThuc": "2026-11-30T23:59:00+07:00"
     }
   ]
 }
