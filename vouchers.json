@@ -1,6 +1,6 @@
 {
   "caiDat": {
-    "capNhatLuc": "08:11 ngày 18/11/2026",
+    "capNhatLuc": "11:12 ngày 18/11/2026",
     "affiliateId": "17325560313",
     "linkMacDinh": "https://shopee.vn/",
     "linkNutCoDinh": "https://shopee.vn/",
@@ -8,6 +8,20 @@
     "baoMaLoi": ""
   },
   "danhSachMa": [
+    {
+      "id": "shopee-vip-25-200k",
+      "nguon": "claude",
+      "loai": "toan-san",
+      "tieuDe": "Giảm 25%",
+      "dieuKien": "Shopee VIP · Tối đa 200K",
+      "donToiThieu": 0,
+      "khungGio": "Nhiều khung giờ",
+      "ghiChu": "Lọc tài khoản · Chỉ thành viên Shopee VIP · HSD 30/11",
+      "ma": "",
+      "link": "",
+      "batDau": "2026-11-18T00:00:00+07:00",
+      "ketThuc": "2026-11-30T23:59:00+07:00"
+    },
     {
       "id": "kol-ig-50-50k-1611",
       "nguon": "claude",
@@ -35,6 +49,76 @@
       "link": "",
       "batDau": "2026-11-16T09:00:00+07:00",
       "ketThuc": "2026-11-22T23:59:00+07:00"
+    },
+    {
+      "id": "bach-hoa-30-100k",
+      "nguon": "claude",
+      "loai": "nganh-hang",
+      "tieuDe": "Bách hóa -30%",
+      "dieuKien": "Tối đa 100K",
+      "donToiThieu": 300000,
+      "khungGio": "Nhiều khung giờ",
+      "ghiChu": "Sản phẩm trong danh sách Bách hóa · Số lượt có hạn",
+      "ma": "",
+      "link": "",
+      "batDau": "2026-11-18T00:00:00+07:00",
+      "ketThuc": "2026-11-18T23:59:00+07:00"
+    },
+    {
+      "id": "bach-hoa-25-150k",
+      "nguon": "claude",
+      "loai": "nganh-hang",
+      "tieuDe": "Bách hóa -25%",
+      "dieuKien": "Tối đa 150K",
+      "donToiThieu": 500000,
+      "khungGio": "Nhiều khung giờ",
+      "ghiChu": "Sản phẩm trong danh sách Bách hóa · Số lượt có hạn",
+      "ma": "",
+      "link": "",
+      "batDau": "2026-11-18T00:00:00+07:00",
+      "ketThuc": "2026-11-18T23:59:00+07:00"
+    },
+    {
+      "id": "xtra-25-100k",
+      "nguon": "claude",
+      "loai": "nganh-hang",
+      "tieuDe": "Xtra -25%",
+      "dieuKien": "Tối đa 100K",
+      "donToiThieu": 100000,
+      "khungGio": "Nhiều khung giờ",
+      "ghiChu": "Sản phẩm gắn nhãn Xtra · Số lượt có hạn",
+      "ma": "",
+      "link": "",
+      "batDau": "2026-11-18T00:00:00+07:00",
+      "ketThuc": "2026-11-18T23:59:00+07:00"
+    },
+    {
+      "id": "xtra-20-300k",
+      "nguon": "claude",
+      "loai": "nganh-hang",
+      "tieuDe": "Xtra -20%",
+      "dieuKien": "Tối đa 300K",
+      "donToiThieu": 500000,
+      "khungGio": "Nhiều khung giờ",
+      "ghiChu": "Sản phẩm gắn nhãn Xtra · Số lượt có hạn",
+      "ma": "",
+      "link": "",
+      "batDau": "2026-11-18T00:00:00+07:00",
+      "ketThuc": "2026-11-18T23:59:00+07:00"
+    },
+    {
+      "id": "xtra-20-2tr",
+      "nguon": "claude",
+      "loai": "nganh-hang",
+      "tieuDe": "Xtra -20%",
+      "dieuKien": "Tối đa 2 triệu",
+      "donToiThieu": 2000000,
+      "khungGio": "Nhiều khung giờ",
+      "ghiChu": "Sản phẩm gắn nhãn Xtra · Số lượt có hạn",
+      "ma": "",
+      "link": "",
+      "batDau": "2026-11-18T00:00:00+07:00",
+      "ketThuc": "2026-11-18T23:59:00+07:00"
     },
     {
       "id": "shopee-xu-ly-20-35k",
