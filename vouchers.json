@@ -1,6 +1,6 @@
 {
   "caiDat": {
-    "capNhatLuc": "23:15 ngày 17/11/2026",
+    "capNhatLuc": "08:11 ngày 18/11/2026",
     "affiliateId": "17325560313",
     "linkMacDinh": "https://shopee.vn/",
     "linkNutCoDinh": "https://shopee.vn/",
@@ -8,20 +8,6 @@
     "baoMaLoi": ""
   },
   "danhSachMa": [
-    {
-      "id": "vip-25-200k-1711",
-      "nguon": "claude",
-      "loai": "toan-san",
-      "tieuDe": "Giảm 25%",
-      "dieuKien": "ShopeeVIP · Tối đa 200K",
-      "donToiThieu": 0,
-      "khungGio": "9h·12h·15h·18h·20h",
-      "ghiChu": "Lưu banner trước · Số lượt có hạn",
-      "ma": "",
-      "link": "",
-      "batDau": "2026-11-17T09:00:00+07:00",
-      "ketThuc": "2026-11-17T23:59:00+07:00"
-    },
     {
       "id": "kol-ig-50-50k-1611",
       "nguon": "claude",
@@ -49,90 +35,6 @@
       "link": "",
       "batDau": "2026-11-16T09:00:00+07:00",
       "ketThuc": "2026-11-22T23:59:00+07:00"
-    },
-    {
-      "id": "bach-hoa-30-100k-1711",
-      "nguon": "claude",
-      "loai": "nganh-hang",
-      "tieuDe": "Bách Hóa -30%",
-      "dieuKien": "Tối đa 100K",
-      "donToiThieu": 300000,
-      "khungGio": "9h·12h·15h·18h·20h",
-      "ghiChu": "Sản phẩm Bách Hóa tham gia · Lưu banner",
-      "ma": "",
-      "link": "",
-      "batDau": "2026-11-17T09:00:00+07:00",
-      "ketThuc": "2026-11-17T23:59:00+07:00"
-    },
-    {
-      "id": "bach-hoa-25-150k-1711",
-      "nguon": "claude",
-      "loai": "nganh-hang",
-      "tieuDe": "Bách Hóa -25%",
-      "dieuKien": "Tối đa 150K",
-      "donToiThieu": 500000,
-      "khungGio": "9h·12h·15h·18h·20h",
-      "ghiChu": "Sản phẩm Bách Hóa tham gia · Lưu banner",
-      "ma": "",
-      "link": "",
-      "batDau": "2026-11-17T09:00:00+07:00",
-      "ketThuc": "2026-11-17T23:59:00+07:00"
-    },
-    {
-      "id": "xtra-25-100k-1711",
-      "nguon": "claude",
-      "loai": "toan-san",
-      "tieuDe": "Giảm 25%",
-      "dieuKien": "Voucher Xtra · Tối đa 100K",
-      "donToiThieu": 100000,
-      "khungGio": "9h·12h·18h",
-      "ghiChu": "Shop tham gia Xtra · Lưu mã trước",
-      "ma": "",
-      "link": "",
-      "batDau": "2026-11-17T09:00:00+07:00",
-      "ketThuc": "2026-11-17T23:59:00+07:00"
-    },
-    {
-      "id": "xtra-20-300k-1711",
-      "nguon": "claude",
-      "loai": "toan-san",
-      "tieuDe": "Giảm 20%",
-      "dieuKien": "Voucher Xtra · Tối đa 300K",
-      "donToiThieu": 500000,
-      "khungGio": "9h·12h·18h",
-      "ghiChu": "Shop tham gia Xtra · Lưu mã trước",
-      "ma": "",
-      "link": "",
-      "batDau": "2026-11-17T09:00:00+07:00",
-      "ketThuc": "2026-11-17T23:59:00+07:00"
-    },
-    {
-      "id": "xtra-20-2tr-1711",
-      "nguon": "claude",
-      "loai": "toan-san",
-      "tieuDe": "Giảm 20%",
-      "dieuKien": "Voucher Xtra · Tối đa 2 triệu",
-      "donToiThieu": 2000000,
-      "khungGio": "9h·12h·18h",
-      "ghiChu": "Shop tham gia Xtra · Lưu mã trước",
-      "ma": "",
-      "link": "",
-      "batDau": "2026-11-17T09:00:00+07:00",
-      "ketThuc": "2026-11-17T23:59:00+07:00"
-    },
-    {
-      "id": "live-50-100k-1711",
-      "nguon": "claude",
-      "loai": "toan-san",
-      "tieuDe": "Live -50%",
-      "dieuKien": "Shopee Live · Tối đa 100K",
-      "donToiThieu": 0,
-      "khungGio": "Khung 12h",
-      "ghiChu": "Chỉ sản phẩm trong phiên live · Số lượt có hạn",
-      "ma": "",
-      "link": "",
-      "batDau": "2026-11-17T12:00:00+07:00",
-      "ketThuc": "2026-11-17T23:59:00+07:00"
     },
     {
       "id": "shopee-xu-ly-20-35k",
