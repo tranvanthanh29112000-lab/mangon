@@ -1,6 +1,6 @@
 {
   "caiDat": {
-    "capNhatLuc": "08:13 ngày 23/11/2026",
+    "capNhatLuc": "11:11 ngày 23/11/2026",
     "affiliateId": "17325560313",
     "linkMacDinh": "https://shopee.vn/",
     "linkNutCoDinh": "https://shopee.vn/",
@@ -48,20 +48,6 @@
       "ma": "",
       "link": "",
       "batDau": "2026-11-23T09:00:00+07:00",
-      "ketThuc": "2026-11-23T23:59:00+07:00"
-    },
-    {
-      "id": "mall-25-100k-23-11",
-      "nguon": "claude",
-      "loai": "toan-san",
-      "tieuDe": "Mall -25%",
-      "dieuKien": "Tối đa 100K",
-      "donToiThieu": 150000,
-      "khungGio": "",
-      "ghiChu": "Áp dụng nhiều shop Mall · Số lượt có hạn",
-      "ma": "",
-      "link": "",
-      "batDau": "2026-11-23T00:00:00+07:00",
       "ketThuc": "2026-11-23T23:59:00+07:00"
     },
     {
