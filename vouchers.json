@@ -1,6 +1,6 @@
 {
   "caiDat": {
-    "capNhatLuc": "17:14 ngày 23/11/2026",
+    "capNhatLuc": "23:16 ngày 23/11/2026",
     "affiliateId": "17325560313",
     "linkMacDinh": "https://shopee.vn/",
     "linkNutCoDinh": "https://shopee.vn/",
@@ -119,6 +119,34 @@
       "link": "",
       "batDau": "2026-11-23T18:00:00+07:00",
       "ketThuc": "2026-11-23T23:59:00+07:00"
+    },
+    {
+      "id": "vip-35-150k-mua-3-23-11",
+      "nguon": "claude",
+      "loai": "toan-san",
+      "tieuDe": "Giảm 35%",
+      "dieuKien": "Tối đa 150K · Mua 3 sản phẩm",
+      "donToiThieu": 0,
+      "khungGio": "Đang mở",
+      "ghiChu": "Lọc tài khoản · Lưu trong Ví Voucher",
+      "ma": "",
+      "link": "",
+      "batDau": "2026-11-23T14:50:00+07:00",
+      "ketThuc": "2026-11-23T23:59:00+07:00"
+    },
+    {
+      "id": "live-50-70k-24-11",
+      "nguon": "claude",
+      "loai": "toan-san",
+      "tieuDe": "Live -50%",
+      "dieuKien": "Shopee Live · Tối đa 70K",
+      "donToiThieu": 0,
+      "khungGio": "Khung 12h",
+      "ghiChu": "Mua qua Shopee Live · Số lượt có hạn",
+      "ma": "",
+      "link": "",
+      "batDau": "2026-11-24T12:00:00+07:00",
+      "ketThuc": "2026-11-24T23:59:00+07:00"
     }
   ]
 }
